@@ -1,0 +1,529 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Internships Walkthrough</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Gelasio:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: one canvas of real Career Plan screens in four chapters (student, faculty, registrar, leadership) laid out in the order the record moves; a camera glides between stops and each label sits in the scene. One light theme, Direction A, navy narrator labels. */
+:root{
+  --canvas:#E7EBF2;
+  --dot:rgba(11,58,111,.075);
+  --surface:#FFFFFF;
+  --app:#F7F8FA;
+  --ink:#101A2B;
+  --ink2:#44536B;
+  --muted:#5F6C82;
+  --line:#D7DEE9;
+  --link:#B9C4D6;
+  --blue:#2456d6;
+  --navy:#0B3A6F;
+  --gold:#E8C263;
+  --note:#F6EBCF;
+  --noteInk:#7A5A0B;
+  --sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --serif:Georgia,'Gelasio','Times New Roman',serif;
+  color-scheme:light;
+}
+html,body{height:100%}
+body{margin:0;background:var(--canvas);color:var(--ink);font:400 14px/1.45 var(--sans);overflow:hidden;-webkit-font-smoothing:antialiased;touch-action:manipulation}
+.vp{position:fixed;inset:0;overflow:hidden;cursor:pointer;outline:none}
+.stage{position:absolute;left:0;top:0;transform-origin:0 0}
+.dots{position:absolute;left:-9000px;top:-3000px;width:26000px;height:16000px;background-image:radial-gradient(var(--dot) 4px,transparent 4.6px);background-size:80px 80px}
+.links{position:absolute;left:0;top:0;overflow:visible}
+.links path{fill:none;stroke:var(--link);stroke-width:12;stroke-dasharray:34 26;stroke-linecap:round}
+
+.title{position:absolute;left:-4300px;top:1850px;width:3700px}
+.title .eb{font:600 74px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.title h1{margin:60px 0 0;font:500 380px/.98 var(--serif);letter-spacing:-.02em;color:var(--ink);text-wrap:balance}
+.title p{margin:90px 0 0;font:400 132px/1.2 var(--serif);color:var(--ink2);text-wrap:balance}
+.title .meta{margin-top:100px;font:500 62px/1 var(--sans);color:var(--muted)}
+
+.ztitle{position:absolute;display:flex;align-items:center;gap:56px;white-space:nowrap;font:500 190px/1 var(--serif);color:var(--ink)}
+.ztitle .zn{display:grid;place-items:center;width:200px;height:200px;border-radius:50%;background:var(--navy);color:#FFFFFF;font:600 100px/1 var(--sans)}
+
+.today{position:absolute;left:-4300px;top:4200px;width:2400px;height:1380px;transform:scale(1.5);transform-origin:0 0}
+.frag{position:absolute;width:760px;background:var(--surface);border-radius:20px;padding:36px 42px 40px;box-shadow:0 28px 50px -28px rgba(16,26,43,.38),0 0 0 2px rgba(16,26,43,.06);font:400 34px/1.38 var(--sans);color:var(--ink2)}
+.frag .m{display:flex;align-items:center;gap:14px;font:500 25px/1 var(--sans);color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.frag .m svg{width:34px;height:34px;flex:none}
+.frag b{display:block;margin:20px 0 10px;font:600 36px/1.2 var(--sans);color:var(--ink)}
+.frag .row{display:flex;justify-content:space-between;gap:20px;border-bottom:3px solid var(--line);padding:16px 0 8px}
+.frag .row span:last-child{flex:1;border-bottom:3px dashed var(--link);margin-bottom:6px}
+.frag.note{width:430px;background:var(--note);color:var(--noteInk);font:600 40px/1.25 var(--sans);padding:40px 44px}
+
+.panel{position:absolute;margin:0;background:var(--app);border-radius:16px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(16,26,43,.45),0 0 0 2px rgba(16,26,43,.07)}
+.panel img{position:absolute;left:0;top:0;width:1440px;height:auto;display:block}
+.panel .late{opacity:0}
+.panel.pane{border-radius:14px;background:#FFFFFF}
+.panel.pane img{width:858px}
+.panel .st{opacity:0}
+.pcap{position:absolute;white-space:nowrap;font:600 30px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.panel.screen{border-radius:6px;box-shadow:none}
+.bezel{position:absolute;background:#1C2230;border-radius:34px;box-shadow:0 60px 100px -50px rgba(16,26,43,.6)}
+.neck{position:absolute;background:#262D3D;clip-path:polygon(16% 0,84% 0,100% 100%,0 100%)}
+.mbase{position:absolute;background:#1F2533;border-radius:18px}
+.mhead{position:absolute;display:flex;align-items:baseline;gap:40px;white-space:nowrap}
+.mhead b{font:600 124px/1 var(--sans);color:var(--ink);letter-spacing:-.01em}
+.mhead span{font:500 54px/1 var(--sans);color:var(--muted)}
+
+.lvp{position:fixed;inset:0;overflow:hidden;pointer-events:none}
+.lbl{position:absolute;box-sizing:border-box;background:var(--navy);color:#FFFFFF;opacity:0;pointer-events:none;box-shadow:0 1em 2.2em -1.1em rgba(11,26,48,.75)}
+.lbl .e{font-family:var(--sans);font-weight:600;font-size:.44em;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.6em}
+.lbl .t{font-family:var(--serif);font-weight:500;line-height:1.26;text-wrap:pretty}
+
+.spot,.fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+.ver{position:fixed;left:calc(14px + env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));font:500 12px/1 var(--sans);color:var(--muted);letter-spacing:.02em;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 10px}
+.ctl{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;align-items:center;gap:4px;padding:5px;background:var(--surface);border:1px solid var(--line);border-radius:999px;box-shadow:0 10px 26px -14px rgba(16,26,43,.45);opacity:.66;transition:opacity .25s;max-width:calc(100vw - 32px)}
+.ctl:hover,.ctl:focus-within{opacity:1}
+.ctl.gone{opacity:0;pointer-events:none}
+.ctl button{display:grid;place-items:center;min-width:38px;height:38px;padding:0 10px;border:0;border-radius:999px;background:transparent;color:var(--ink);font:500 13px/1 var(--sans);cursor:pointer;white-space:nowrap}
+.ctl button:hover{background:var(--app)}
+.ctl button:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.ctl button[disabled]{opacity:.35;cursor:default}
+.ctl button[aria-current="true"]{background:var(--navy);color:#FFFFFF}
+.ctl .sep{width:1px;height:22px;background:var(--line);margin:0 4px}
+.ctl svg{width:18px;height:18px}
+.ctl .pos{min-width:62px;text-align:center;font:500 13px/1 var(--sans);color:var(--ink2);font-variant-numeric:tabular-nums}
+.hint{position:fixed;left:50%;bottom:calc(66px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);font:500 13px/1.3 var(--sans);color:var(--ink2);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 12px;white-space:nowrap;pointer-events:none;transition:opacity .4s}
+.hint.off{opacity:0}
+.turn{display:none;position:fixed;left:16px;right:16px;top:calc(16px + env(safe-area-inset-top,0px));text-align:center;font:500 13px/1.35 var(--sans);color:var(--ink2);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 12px;pointer-events:none}
+@media (max-width:860px){.ctl .chap,.ctl .sep{display:none}}
+@media (orientation:portrait) and (max-width:700px){.turn{display:block}.hint{display:none}}
+@media (max-width:620px){.ver{display:none}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.video .ctl,.video .hint,.video .turn{display:none}
+.video .vp{cursor:default}
+</style>
+
+<div class="vp" id="vp" tabindex="0" aria-label="Internships walkthrough. Click or press the right arrow to move forward.">
+  <div class="stage" id="stage">
+    <div class="dots"></div>
+    <svg class="links" width="1" height="1" aria-hidden="true">
+      <path d="M-420 5150 C -120 5150, -330 2880, -50 2880"/>
+      <path d="M6280 2880 L 6900 2880"/>
+      <path d="M10020 2880 L 10640 2880"/>
+      <path d="M14600 3900 L 14600 5240"/>
+      <path d="M12240 6400 L 11800 6400"/>
+    </svg>
+
+    <section class="title" aria-label="Title">
+      <div class="eb">Career Plan · Internships</div>
+      <h1>Internships, start to finish</h1>
+      <p>Here’s how one internship record moves from the student’s form to faculty, the registrar, the career center and leadership.</p>
+      <div class="meta">Internships walkthrough v1.1 · Synthetic data</div>
+    </section>
+
+    <section class="today" aria-label="How it works now">
+      <div class="frag" style="left:1000px;top:10px;transform:rotate(-4deg);width:800px">
+        <div class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>Email</div>
+        <b>Internship for credit?</b>Attaching my offer letter. Is this what you need?
+      </div>
+      <div class="frag" style="left:1860px;top:150px;transform:rotate(3deg);width:680px">
+        <div class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg>Survey</div>
+        <b>Internship survey</b>
+        <div class="row"><span>Supervisor email</span><span></span></div>
+        <div class="row"><span>Hours per week</span><span></span></div>
+        <div class="row"><span>Dates</span><span></span></div>
+      </div>
+      <div class="frag" style="left:1060px;top:520px;transform:rotate(2deg)">
+        <div class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>Email · Re: Re:</div>
+        <b>Section number</b>Which section should this go under?
+      </div>
+      <div class="frag" style="left:1880px;top:800px;transform:rotate(-3deg);width:640px">
+        <div class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>Email</div>
+        <b>Following up</b>Who has my form now?
+      </div>
+      <div class="frag note" style="left:1220px;top:1000px;transform:rotate(5deg)">Credits: 3 or 4?</div>
+    </section>
+
+    <div id="panels"></div>
+  </div>
+</div>
+
+<svg class="spot" id="spot" aria-hidden="true"></svg>
+<div class="lvp" aria-hidden="true"><div class="stage" id="lstage"></div></div>
+<canvas class="fx" id="fx" aria-hidden="true"></canvas>
+<div class="ver">Internships walkthrough v1.1 · Synthetic data</div>
+<div class="turn">Turn your phone sideways for the full view.</div>
+<div class="hint" id="hint">Click anywhere, or press → or Space, to move forward</div>
+<nav class="ctl" id="ctl" aria-label="Walkthrough controls">
+  <button type="button" id="prev" aria-label="Previous stop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <span class="pos" id="pos">1 / 39</span>
+  <button type="button" id="next" aria-label="Next stop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  <span class="sep" aria-hidden="true"></span>
+  <button type="button" class="chap" data-chap="0">Student</button>
+  <button type="button" class="chap" data-chap="1">Faculty</button>
+  <button type="button" class="chap" data-chap="2">Registrar</button>
+  <button type="button" class="chap" data-chap="3">Career center</button>
+  <button type="button" class="chap" data-chap="4">Leadership</button>
+  <span class="sep" aria-hidden="true"></span>
+  <button type="button" id="ovw" aria-label="Back to the overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="7" height="7" rx="1.5"/><rect x="13.5" y="4" width="7" height="7" rx="1.5"/><rect x="3.5" y="14" width="7" height="6" rx="1.5"/><rect x="13.5" y="14" width="7" height="6" rx="1.5"/></svg></button>
+  <button type="button" id="fs" aria-label="Full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+</nav>
+<div class="sr" id="say" aria-live="polite"></div>
+
+<script>
+(function () {
+  'use strict';
+  var VIDEO = !!window.__VIDEO;
+  if (VIDEO) document.documentElement.classList.add('video');
+
+  /* screens on the canvas: id, position, cropped height, description */
+  var PANELS = {
+    h_portal:     [1700, -40, 718, 'Suffolk’s Handshake staff home with popular employers and job roles; employer names blurred'],
+    u_report:     [7740, -40, 1010, 'A Suitable career readiness report comparing the student’s and supervisor’s ratings; names and employer hidden', [['suitA', 'u_report'], ['suitB', 'u_comments']]],
+    s_home:       [0, 1650, 901, 'Student home with a prompt to tell the career center about a new internship'],
+    s_course:     [1600, 1650, 1110, 'Internship form, course step, searching the list of internship courses'],
+    s_nfc:        [3200, 1650, 901, 'Internship form, course step, marked not for course credit'],
+    s_org:        [4800, 1650, 901, 'Internship form, organization step, searching Handshake employers'],
+    s_sup:        [0, 2920, 1076, 'Internship form, supervisor step'],
+    s_review:     [1600, 2920, 1190, 'Internship form, review step before sending'],
+    s_done:       [3200, 2920, 901, 'Confirmation that the internship is with the faculty member, with what happens next'],
+    f_cards:      [6940, 1650, 908, 'Faculty home with student cards waiting for review'],
+    f_back:       [8540, 1650, 1286, 'A student card flipped to show every detail from the form'],
+    f_suitable:   [6940, 3096, 900, 'Suitable assessment list for the faculty member’s own students, marked planned'],
+    f_events:     [8540, 3096, 900, 'Career center events from Handshake, with counts from the faculty member’s sections'],
+    r_cal:        [10680, 1650, 1046, 'Registrar calendar with each day’s approvals'],
+    r_courses:    [12280, 1650, 1164, 'Registrar courses view with a progress ring for each course'],
+    r_holdset:    [13880, 1650, 900, 'Hold settings, where the registrar chooses who sees each hold reason'],
+    r_holds:      [10680, 2974, 1100, 'Student list with one student’s two holds open'],
+    r_download:   [12280, 2974, 900, 'Download of new approvals in Workday’s column order'],
+    r_phone:      [13880, 2974, 900, 'The student’s card as it looks once registered'],
+    m_reg:        [10680, 4300, 579, 'Registrar’s view of a message thread on a student’s record', [['msgA', 'm_r1'], ['msgC', 'm_r2'], ['msgD', 'm_r3']]],
+    m_fac:        [11658, 4300, 579, 'Faculty view of the same message thread', [['msgA', 'm_f1'], ['msgB', 'm_f1t'], ['msgC', 'm_f2'], ['msgD', 'm_f3']]],
+    c_todo:       [12280, 5650, 1073, 'Internship team to-do with new records to check'],
+    c_employers:  [13880, 5650, 1100, 'Employer list by parent and department, each with its Handshake ID'],
+    c_hs_missing: [12280, 6910, 913, 'Employers and records with no Handshake ID yet, to match or flag'],
+    c_hs_csv:     [13880, 6910, 900, 'Handshake CSV export of approved, cleaned records'],
+    l_emp:        [7120, 5650, 1122, 'Leadership view of where Suffolk students intern, counts only'],
+    l_trends:     [8720, 5650, 1225, 'Leadership trends by term, college and career community'],
+    d_security:   [10320, 5650, 1100, 'Security and access: sign-in, access by role and the access log']
+  };
+  var ZONES = [['1', 'Student', 0, 1300], ['2', 'Faculty', 6940, 1300], ['3', 'Registrar', 10680, 1300], ['4', 'Career center', 12280, 5300], ['5', 'Leadership', 7120, 5300]];
+  var CAPS = [['Registrar’s office', 10680, 4240], ['Prof. Baker, faculty', 11658, 4240], ['Privacy and access', 10320, 5590]];
+
+  /* stops: frame [panel or null, cx, cy, width] in that panel's own pixels; highlights [panel, x1, y1, x2, y2]; label in frame fractions */
+  var S = [
+    { f: [null, 5510, 3752, 20420], hold: 5.2 },
+    { f: [null, -2400, 5240, 4300], l: ['How it works now', 'Right now an internship’s details tend to travel in pieces, through a survey and a lot of email between offices.', .06, .14, .31] },
+    { f: ['s_home', 720, 560, 1300], h: [['s_home', 188, 362, 924, 657]], l: ['The student side', 'It starts with the student. When they land an internship, there’s a spot on their page to tell us about it.', .645, .64, .32], ch: 0 },
+    { f: ['s_course', 700, 800, 1250], h: [['s_course', 188, 626, 868, 974]], l: ['The course', 'They pick their course from the real list of 60 internship courses, so it reaches the right faculty member.', .675, .45, .3] },
+    { f: ['s_nfc', 700, 640, 1250], h: [['s_nfc', 188, 533, 868, 715]], l: ['Not for credit', 'If it isn’t for credit, students still tell us about it. It skips faculty and the registrar, and it still counts.', .675, .5, .3] },
+    { f: [null, 2795, 310, 2400], l: ['What’s Handshake?', 'Handshake is the career platform where Suffolk students find internships, jobs and events, and where employers post them.', .702, .36, .27] },
+    { f: ['s_org', 700, 560, 1250], h: [['s_org', 188, 446, 868, 706]], l: ['The employer', 'They search for the employer in Handshake’s list, so one company ends up with one name across the university.', .675, .54, .3] },
+    { f: ['s_sup', 700, 640, 1250], h: [['s_sup', 188, 446, 868, 873]], l: ['The supervisor', 'They add the supervisor’s name, title and work email once, so nobody has to follow up for it later.', .675, .5, .3] },
+    { f: ['s_review', 700, 820, 1400], h: [['s_review', 188, 468, 868, 1183]], l: ['Before they send', 'Students look everything over before it goes anywhere, so what arrives is what they meant to send.', .655, .26, .3] },
+    { f: ['s_done', 720, 470, 1440], h: [['s_done', 188, 289, 948, 652]], l: ['Where it goes', 'Once it’s sent, students can see who has it and what happens next, which cuts down on emails asking where things stand.', .69, .26, .28] },
+    { f: ['f_cards', 720, 410, 1300], h: [['f_cards', 264, 162, 1103, 421]], l: ['Faculty', 'From there it lands with the faculty member as a card, sorted by what’s waiting and what’s already moved on.', .15, .6, .5], ch: 1 },
+    { f: ['f_back', 830, 562, 1560], h: [['f_back', 264, 217, 1103, 907]], l: ['The details', 'Flipping a card shows everything the student entered, so faculty have it all in front of them before they decide.', .7, .27, .275] },
+    { f: ['f_back', 740, 750, 1150], h: [['f_back', 790, 842, 1085, 892]], l: ['Faculty review', 'Faculty can approve it or send it back to the student with a note. In a few departments, the chair approves next.', .05, .14, .38] },
+    { key: 'approve', f: ['f_back', 880, 540, 1300], h: [['f_back', 1125, 217, 1423, 599], ['f_back', 454, 832, 986, 876]], l: ['After approval', 'Once it’s approved, it goes to the registrar automatically, so there’s nothing to pass along.', .07, .43, .5], burst: true },
+    { key: 'suitA', f: [null, 8830, 450, 2800], l: ['What’s Suitable?', 'Suitable is where Suffolk runs end-of-term career readiness assessments, comparing the student’s own ratings with their supervisor’s.', .664, .38, .3] },
+    { key: 'suitB', f: [null, 8460, 700, 1750], h: [['u_report', 7, 616, 1429, 881]], l: ['Observer feedback', 'Supervisors can also write feedback, listing strengths and an area for improvement, alongside their scores.', .08, .06, .84] },
+    { f: [null, 8460, 3546, 3400], h: [['f_suitable', 264, 157, 1423, 523], ['f_events', 264, 157, 1423, 580]], l: ['Later in the term', 'Faculty will also see Suitable results once it’s connected, and which career center events their students sign up for.', .08, .8, .84] },
+    { f: ['r_cal', 844, 520, 1600], h: [['r_cal', 285, 286, 1083, 914]], l: ['The registrar', 'The registrar’s office opens on a calendar with each day’s approvals and the internships starting soon.', .69, .27, .27], ch: 2 },
+    { f: ['r_courses', 844, 560, 1440], h: [['r_courses', 264, 301, 1424, 606]], l: ['Course by course', 'Each course gets a progress ring, so it’s easy to see who’s registered, who’s ready and who’s on hold.', .12, .62, .6] },
+    { f: ['r_holdset', 844, 520, 1440], h: [['r_holdset', 264, 259, 1424, 615]], l: ['Hold settings', 'The registrar decides who can see the reason for each kind of hold. Everyone else just sees “Registration hold.”', .12, .74, .7] },
+    { f: ['r_holds', 1000, 500, 1300], h: [['r_holds', 1124, 228, 1424, 640]], l: ['Student holds', 'A student can have more than one hold, and registration waits until all of them are cleared.', .05, .3, .5] },
+    { key: 'msgA', f: [null, 11598, 4590, 2000], h: [['m_reg', 167, 132, 800, 194], ['m_fac', 58, 132, 691, 194]], l: ['Between offices', 'When the registrar adds a hold, they can message the faculty member right on the student’s record.', .1, .775, .8] },
+    { key: 'msgB', f: [null, 11598, 4590, 2000], h: [['m_reg', 36, 58, 373, 75], ['m_fac', 36, 58, 373, 75]], l: ['Only what’s shared', 'Prof. Baker sees “registration hold,” not the reason, because the registrar chose not to share it.', .1, .775, .8] },
+    { key: 'msgC', f: [null, 11598, 4590, 2000], h: [['m_reg', 58, 245, 691, 307], ['m_fac', 167, 245, 800, 307]], l: ['Replies', 'Replies show up for both offices as soon as they’re sent, and students never see the thread.', .1, .775, .8] },
+    { key: 'msgD', f: [null, 11598, 4590, 2000], h: [['m_reg', 289, 358, 800, 399], ['m_fac', 58, 358, 569, 399]], l: ['Messages', 'The conversation stays with the record instead of in someone’s inbox. At launch, it’s just the registrar and faculty.', .1, .775, .8] },
+    { f: ['r_download', 720, 520, 1600], h: [['r_download', 354, 199, 1086, 701]], l: ['Registering', 'They download what’s new in Workday’s column order, register students in Workday, and mark them registered here.', .27, .74, .46] },
+    { f: ['r_phone', 720, 450, 1300], h: [['r_phone', 354, 232, 1086, 616]], l: ['The student’s card', 'That’s when the student’s card changes to Registered, on the web or on their phone.', .22, .82, .56] },
+    { f: ['c_todo', 720, 560, 1440], h: [['c_todo', 264, 216, 836, 563]], l: ['The career center', 'Behind the scenes, the career center’s internship team checks each new record, like spotting duplicates.', .62, .2, .34], ch: 3 },
+    { f: ['c_employers', 844, 700, 1440], h: [['c_employers', 589, 529, 768, 1100]], l: ['Years of employer data', 'Suffolk has years of Handshake employer data, more than 15,000 organizations, and each one has its own employer ID.', .53, .55, .42] },
+    { f: ['c_todo', 560, 400, 1100], h: [['c_todo', 273, 313, 827, 376]], l: ['Confirming the employer', 'Students pick from that same list, so the team can confirm an employer by its ID instead of a typed name.', .24, .62, .52] },
+    { f: ['c_hs_missing', 844, 560, 1440], h: [['c_hs_missing', 264, 327, 834, 810]], l: ['New employers', 'When an employer isn’t in Handshake yet, it gets flagged and added, so the list keeps growing cleanly.', .58, .55, .38] },
+    { f: ['c_hs_csv', 720, 470, 1300], h: [['c_hs_csv', 264, 327, 834, 589]], l: ['Sharing back', 'Approved records go out to Handshake and Suitable as downloaded files, so nobody has to type them in twice.', .15, .7, .6] },
+    { f: ['l_emp', 844, 420, 1440], h: [['l_emp', 1074, 104, 1424, 137], ['l_emp', 264, 349, 1424, 600]], l: ['Leadership', 'Leadership sees where Suffolk students intern, as counts only, with no student names.', .12, .72, .62], ch: 4 },
+    { f: ['l_trends', 560, 850, 1100], h: [['l_trends', 264, 759, 640, 1028]], l: ['Across both colleges', 'It shows which employers host interns from both the business school and the College of Arts and Sciences.', .6, .38, .37] },
+    { f: ['l_trends', 720, 500, 1440], h: [['l_trends', 264, 228, 838, 342], ['l_trends', 264, 362, 1032, 743]], l: ['Trends', 'There are trends too, like internships by term, how many are paid, and how many have Suffolk funding.', .73, .36, .26] },
+    { f: ['l_trends', 560, 360, 1000], h: [['l_trends', 264, 228, 545, 342]], l: ['How the count works', 'A record counts once it’s approved and the internship team has confirmed the employer, so the numbers hold up.', .2, .58, .6] },
+    { key: 'privacy', f: ['d_security', 844, 520, 1440], h: [['d_security', 264, 214, 1104, 750]], l: ['Privacy', 'Everyone signs in with their Suffolk account, each office sees only its part, and every view and download is logged.', .7, .27, .28] },
+    { f: ['r_courses', 844, 1000, 1450], h: [['r_courses', 264, 1030, 1424, 1100]], l: ['Ideas welcome', 'We’re still shaping this, so we’d love to hear what each office would want to see in its part.', .1, .66, .8] },
+    { f: [null, 5510, 3752, 20420], hold: 6.4, l: ['Internships walkthrough v1.1', 'Students tell us once, and faculty, the registrar, the career center and leadership all work from the same record.', .23, .652, .313] }
+  ];
+  var N = S.length, AR = 9 / 16;
+  var KEY = {}; S.forEach(function (st, i) { if (st.key) KEY[st.key] = i; });
+  var APPROVED_AT = KEY.approve;
+  var CHAPTERS = [];
+  S.forEach(function (s, i) { if (s.ch != null) CHAPTERS[s.ch] = i; });
+  var CH_END = CHAPTERS.map(function (st, c) { return c < CHAPTERS.length - 1 ? CHAPTERS[c + 1] - 1 : KEY.privacy - 1; });
+  var CH_NAMES = ['Student', 'Faculty', 'Registrar', 'Career center', 'Leadership'];
+  function chapterOf(i) { for (var c = CHAPTERS.length - 1; c >= 0; c--) if (i >= CHAPTERS[c] && i <= CH_END[c]) return c; return -1; }
+
+  function px(id) { return PANELS[id]; }
+  function abs(id, x, y) { var p = px(id); return [p[0] + x, p[1] + y]; }
+  S.forEach(function (s) {
+    var c = s.f[0] ? abs(s.f[0], s.f[1], s.f[2]) : [s.f[1], s.f[2]];
+    s.cam = { cx: c[0], cy: c[1], w: s.f[3] };
+    s.rects = (s.h || []).map(function (h) { var a = abs(h[0], h[1], h[2]), b = abs(h[0], h[3], h[4]); return [a[0], a[1], b[0], b[1]]; });
+    var words = s.l ? s.l[1].split(/\s+/).length : 0;
+    if (s.hold == null) s.hold = Math.max(4.6, 2.6 + 0.2 * words);
+  });
+
+  /* build the screens */
+  var pbox = document.getElementById('panels'), STATEP = [];
+  [['h_portal', 'Handshake', 'Suffolk’s staff view, not part of Career Plan'], ['u_report', 'Suitable', 'A student’s report, not part of Career Plan. Names hidden']].forEach(function (mon) {
+    var h = PANELS[mon[0]], x = h[0], y = h[1], w = 1440, ht = h[2];
+    function el(cls, css, html) { var d = document.createElement('div'); d.className = cls; d.style.cssText = css; if (html) d.innerHTML = html; pbox.appendChild(d); return d; }
+    var head = el('mhead', 'left:' + (x - 40) + 'px;top:' + (y - 240) + 'px', '<b></b><span></span>');
+    head.firstChild.textContent = mon[1]; head.lastChild.textContent = mon[2];
+    el('bezel', 'left:' + (x - 40) + 'px;top:' + (y - 40) + 'px;width:' + (w + 80) + 'px;height:' + (ht + 110) + 'px');
+    el('neck', 'left:' + (x + w / 2 - 170) + 'px;top:' + (y + ht + 70) + 'px;width:340px;height:120px');
+    el('mbase', 'left:' + (x + w / 2 - 280) + 'px;top:' + (y + ht + 186) + 'px;width:560px;height:34px');
+  });
+  Object.keys(PANELS).forEach(function (id) {
+    var p = PANELS[id], fig = document.createElement('figure');
+    fig.className = 'panel' + (id === 'h_portal' || id === 'u_report' ? ' screen' : ''); fig.id = 'p_' + id;
+    fig.style.cssText = 'left:' + p[0] + 'px;top:' + p[1] + 'px;width:1440px;height:' + p[2] + 'px';
+    if (p[4]) {
+      var wd = id.indexOf('m_') === 0 ? 858 : 1440;
+      fig.className = 'panel ' + (wd === 858 ? 'pane' : 'screen');
+      var imgs = p[4].map(function (stt, k) { var im = document.createElement('img'); im.className = 'st'; im.src = 'img/' + stt[1] + '.png'; im.width = wd; im.alt = p[3]; im.decoding = VIDEO ? 'sync' : 'auto'; if (k === 0) im.style.opacity = 1; fig.appendChild(im); return im; });
+      fig.style.width = wd + 'px';
+      STATEP.push({ imgs: imgs, from: p[4].map(function (stt) { return stt[0]; }) });
+      pbox.appendChild(fig);
+      return;
+    }
+    var img = document.createElement('img');
+    img.src = 'img/' + id + '.png'; img.width = 1440; img.height = p[2]; img.alt = p[3]; img.decoding = VIDEO ? 'sync' : 'auto';
+    fig.appendChild(img);
+    if (id === 'f_back') {
+      img.id = 'backImg';
+      var late = document.createElement('img');
+      late.className = 'late'; late.id = 'approvedImg'; late.src = 'img/f_approved.png'; late.width = 1440; late.height = 900;
+      late.alt = 'After approval: the student is in the Approved folder, with the registrar'; late.decoding = VIDEO ? 'sync' : 'auto';
+      fig.appendChild(late);
+    }
+    pbox.appendChild(fig);
+  });
+  CAPS.forEach(function (c) { var d = document.createElement('div'); d.className = 'pcap'; d.style.left = c[1] + 'px'; d.style.top = c[2] + 'px'; d.textContent = c[0]; pbox.appendChild(d); });
+  ZONES.forEach(function (z) {
+    var d = document.createElement('div');
+    d.className = 'ztitle'; d.style.left = z[2] + 'px'; d.style.top = z[3] + 'px';
+    d.innerHTML = '<span class="zn"></span><span></span>';
+    d.firstChild.textContent = z[0]; d.lastChild.textContent = z[1];
+    pbox.appendChild(d);
+  });
+
+  var vp = document.getElementById('vp'), stage = document.getElementById('stage'), lstage = document.getElementById('lstage');
+  var spot = document.getElementById('spot'), fx = document.getElementById('fx'), ctx = fx.getContext('2d');
+  var approvedImg = document.getElementById('approvedImg'), backImg = document.getElementById('backImg'), backPanel = document.getElementById('p_f_back');
+
+  var LBL = S.map(function (s) {
+    if (!s.l) return null;
+    var w = s.cam.w, h = w * AR, x0 = s.cam.cx - w / 2, y0 = s.cam.cy - h / 2, fs = w * 0.0188;
+    var d = document.createElement('div');
+    d.className = 'lbl';
+    d.style.left = (x0 + s.l[2] * w) + 'px';
+    d.style.top = (y0 + s.l[3] * h) + 'px';
+    d.style.width = (s.l[4] * w) + 'px';
+    d.style.fontSize = fs + 'px';
+    d.style.padding = (fs * .8) + 'px ' + (fs * .95) + 'px ' + (fs * .9) + 'px';
+    d.style.borderRadius = (fs * .36) + 'px';
+    d.innerHTML = '<div class="e"></div><div class="t"></div>';
+    d.firstChild.textContent = s.l[0];
+    d.lastChild.textContent = s.l[1];
+    lstage.appendChild(d);
+    return d;
+  });
+
+  function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+  function ease(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  function cam(i) { return S[i].cam; }
+  function lerpCam(A, B, e) {
+    var d = Math.hypot(B.cx - A.cx, B.cy - A.cy), wm = Math.max(A.w, B.w);
+    var peak = Math.max(wm, (d + wm) * 0.8), bump = Math.log(peak / wm);
+    var lw = Math.log(A.w) + (Math.log(B.w) - Math.log(A.w)) * e + bump * Math.sin(Math.PI * e);
+    return { cx: A.cx + (B.cx - A.cx) * e, cy: A.cy + (B.cy - A.cy) * e, w: Math.exp(lw) };
+  }
+  function durFor(A, B) {
+    var d = Math.hypot(B.cx - A.cx, B.cy - A.cy), wm = Math.max(A.w, B.w);
+    var z = Math.abs(Math.log(B.w / A.w));
+    if (d < 1 && z < 0.001) return 0.7;
+    return Math.min(2.4, 1.15 + 0.35 * Math.min(2, d / wm) + 0.22 * z);
+  }
+
+  var VW = 0, VH = 0, DPR = 1;
+  function size() {
+    VW = window.innerWidth; VH = window.innerHeight; DPR = Math.min(2, window.devicePixelRatio || 1);
+    fx.width = Math.round(VW * DPR); fx.height = Math.round(VH * DPR);
+    spot.setAttribute('viewBox', '0 0 ' + VW + ' ' + VH);
+  }
+  function scaleFor(c) { return Math.min(VW / c.w, VH / (c.w * AR)); }
+
+  function rr(x, y, w, h, r) {
+    r = Math.min(r, w / 2, h / 2);
+    return 'M' + (x + r) + ' ' + y + 'H' + (x + w - r) + 'A' + r + ' ' + r + ' 0 0 1 ' + (x + w) + ' ' + (y + r) + 'V' + (y + h - r) + 'A' + r + ' ' + r + ' 0 0 1 ' + (x + w - r) + ' ' + (y + h) + 'H' + (x + r) + 'A' + r + ' ' + r + ' 0 0 1 ' + x + ' ' + (y + h - r) + 'V' + (y + r) + 'A' + r + ' ' + r + ' 0 0 1 ' + (x + r) + ' ' + y + 'Z';
+  }
+  function spotFor(i, op, s, tx, ty) {
+    var st = S[i];
+    if (!st.rects.length || op <= 0.001) return '';
+    var pad = 10, rad = 12, holes = '', rings = '';
+    st.rects.forEach(function (r) {
+      var x = r[0] * s + tx - pad, y = r[1] * s + ty - pad, w = (r[2] - r[0]) * s + pad * 2, h = (r[3] - r[1]) * s + pad * 2;
+      holes += rr(x, y, w, h, rad);
+      rings += '<path d="' + rr(x, y, w, h, rad) + '" fill="none" stroke="#2456d6" stroke-width="3"/>';
+    });
+    var outer = 'M-10 -10H' + (VW + 10) + 'V' + (VH + 10) + 'H-10Z';
+    return '<g opacity="' + op.toFixed(3) + '"><path d="' + outer + holes + '" fill="rgba(11,26,48,.40)" fill-rule="evenodd"/>' + rings + '</g>';
+  }
+
+  var PARTS = (function () {
+    var seed = 20261019, out = [], cols = ['#E8C263', '#4FBE97', '#2456d6', '#E4907C', '#9DB8EE'];
+    function r() { seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }
+    for (var i = 0; i < 70; i++) out.push({ x: r(), d: r() * .35, v: .25 + r() * .35, sx: (r() - .5) * .08, rot: r() * 6.28, spin: (r() - .5) * 12, c: cols[i % 5], round: i % 3 === 0, w: .006 + r() * .004 });
+    return out;
+  })();
+  function drawConfetti(tau) {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, fx.width, fx.height);
+    if (tau == null || tau < 0 || tau > 2.8) return;
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    var unit = Math.min(VW, VH / AR), ox = (VW - unit) / 2, oy = (VH - unit * AR) / 2;
+    PARTS.forEach(function (p) {
+      var t = tau - p.d; if (t < 0) return;
+      var y = -0.05 + p.v * t + 0.22 * t * t, x = p.x + p.sx * t;
+      var a = t > 1.9 ? Math.max(0, 1 - (t - 1.9) / 0.6) : 1;
+      if (y > 1.1 || a <= 0) return;
+      var pxx = ox + x * unit, pyy = oy + y * unit * AR, w = p.w * unit;
+      ctx.save(); ctx.globalAlpha = a; ctx.translate(pxx, pyy); ctx.rotate(p.rot + p.spin * t); ctx.fillStyle = p.c;
+      if (p.round) { ctx.beginPath(); ctx.ellipse(0, 0, w * .5, w * .32, 0, 0, 6.283); ctx.fill(); }
+      else ctx.fillRect(-w * .5, -w * .22, w, w * .44);
+      ctx.restore();
+    });
+  }
+  function approvedState(i) { return i >= APPROVED_AT ? 1 : 0; }
+
+  function frame(a, fromCam, b, p, tau) {
+    var e = ease(clamp(p));
+    var c = lerpCam(fromCam, cam(b), e);
+    var s = scaleFor(c), tx = VW / 2 - c.cx * s, ty = VH / 2 - c.cy * s;
+    stage.style.transform = lstage.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + s + ')';
+    var wOut = a === b ? 0 : 1 - clamp(p / 0.3), wIn = a === b ? 1 : clamp((p - 0.72) / 0.28);
+    for (var i = 0; i < N; i++) {
+      var op = i === b ? wIn : (i === a ? wOut : 0);
+      if (LBL[i]) LBL[i].style.opacity = op.toFixed(3);
+    }
+    spot.innerHTML = (a !== b ? spotFor(a, wOut, s, tx, ty) : '') + spotFor(b, wIn, s, tx, ty);
+    var sa = approvedState(a), sb = approvedState(b);
+    var v = sa + (sb - sa) * clamp((p - 0.5) / 0.12);
+    approvedImg.style.opacity = v.toFixed(3); backImg.style.opacity = (1 - v).toFixed(3);
+    backPanel.style.height = (1286 - 386 * ease(v)) + 'px';
+    STATEP.forEach(function (sp) {
+      function idx(i) { var k = 0; sp.from.forEach(function (key, j) { if (KEY[key] != null && i >= KEY[key]) k = j; }); return k; }
+      var ia = idx(a), ib = idx(b), w = ia === ib ? 1 : clamp((p - 0.4) / 0.2);
+      sp.imgs.forEach(function (im, j) { im.style.opacity = (j === ib ? w : j === ia ? 1 - w : 0).toFixed(3); });
+    });
+    drawConfetti(tau);
+  }
+
+  var cur = 0, from = 0, fromCam = cam(0), t0 = 0, dur = 0.0001, burstAt = null, raf = 0;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var posEl = document.getElementById('pos'), prevB = document.getElementById('prev'), nextB = document.getElementById('next');
+  var hint = document.getElementById('hint'), say = document.getElementById('say'), ctl = document.getElementById('ctl');
+  var chapBtns = [].slice.call(document.querySelectorAll('.chap'));
+  var INTRO = 'Internships, start to finish. Here’s how one internship record moves from the student’s form to faculty, the registrar, the career center and leadership.';
+
+  function ui(i) {
+    posEl.textContent = (i + 1) + ' / ' + N;
+    prevB.disabled = i === 0; nextB.disabled = i === N - 1;
+    var c = chapterOf(i);
+    chapBtns.forEach(function (bt, k) { bt.setAttribute('aria-current', k === c ? 'true' : 'false'); });
+    say.textContent = S[i].l ? S[i].l[1] : INTRO;
+  }
+  function now() { return performance.now() / 1000; }
+  function liveCam() { return lerpCam(fromCam, cam(cur), ease(clamp((now() - t0) / dur))); }
+  function go(i) {
+    i = Math.max(0, Math.min(N - 1, i));
+    if (i === cur && now() - t0 >= dur) return;
+    var c = liveCam();
+    from = cur; fromCam = c; cur = i; t0 = now();
+    dur = reduced ? 0.0001 : durFor(c, cam(i));
+    burstAt = S[i].burst && from < i && !reduced ? t0 + dur * 0.5 : null;
+    if (i > 0) hint.classList.add('off');
+    ui(i);
+    loop();
+  }
+  function loop() {
+    cancelAnimationFrame(raf);
+    var tick = function () {
+      var t = now(), p = clamp((t - t0) / dur);
+      var tau = burstAt == null ? null : t - burstAt;
+      frame(from, fromCam, cur, p, tau);
+      if (p < 1 || (tau != null && tau < 2.9)) raf = requestAnimationFrame(tick);
+      else if (tau != null) { burstAt = null; drawConfetti(null); }
+    };
+    tick();
+  }
+
+  if (VIDEO) {
+    var LEAD = 0.4, TAIL = 1.2, segs = [], t = LEAD, holdStart = [], holdEnd = [], burstT = null;
+    segs.push({ a: 0, b: 0, s: 0, d: LEAD + S[0].hold, hold: true });
+    holdStart[0] = 0; t += S[0].hold; holdEnd[0] = t;
+    for (var k = 1; k < N; k++) {
+      var d = durFor(cam(k - 1), cam(k));
+      segs.push({ a: k - 1, b: k, s: t, d: d });
+      if (S[k].burst) burstT = t + d * 0.5;
+      t += d;
+      var hd = S[k].hold + (k === N - 1 ? TAIL : 0);
+      segs.push({ a: k, b: k, s: t, d: hd, hold: true });
+      holdStart[k] = t; t += hd; holdEnd[k] = t;
+    }
+    window.__duration = t; window.__burst = burstT;
+    window.__chapters = CHAPTERS.map(function (st, c) { return { name: CH_NAMES[c], start: holdStart[st], end: holdEnd[CH_END[c]] }; });
+    window.__renderAt = function (time) {
+      var g = segs[segs.length - 1];
+      for (var j = 0; j < segs.length; j++) if (time < segs[j].s + segs[j].d) { g = segs[j]; break; }
+      var p = g.hold ? 1 : clamp((time - g.s) / g.d);
+      var tau = burstT != null && time >= burstT && time < burstT + 2.9 ? time - burstT : null;
+      frame(g.a, cam(g.a), g.b, p, tau);
+    };
+    window.__stops = segs.filter(function (x) { return x.hold; }).map(function (x) { return [x.b, x.s + x.d / 2]; });
+    size(); window.__renderAt(0);
+    window.addEventListener('resize', size);
+  } else {
+    size(); frame(0, cam(0), 0, 1, null); ui(0);
+    window.addEventListener('resize', function () { size(); fromCam = cam(cur); from = cur; t0 = 0; dur = 0.0001; frame(cur, cam(cur), cur, 1, null); });
+    var downX = null, downY = null;
+    vp.addEventListener('pointerdown', function (ev) { downX = ev.clientX; downY = ev.clientY; });
+    vp.addEventListener('pointerup', function (ev) {
+      if (downX == null) return;
+      var dx = ev.clientX - downX, dy = ev.clientY - downY; downX = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) { go(cur + (dx < 0 ? 1 : -1)); return; }
+      if (ev.button === 0) go(cur + 1);
+    });
+    prevB.addEventListener('click', function () { go(cur - 1); });
+    nextB.addEventListener('click', function () { go(cur + 1); });
+    chapBtns.forEach(function (bt) { bt.addEventListener('click', function () { go(CHAPTERS[+bt.getAttribute('data-chap')]); }); });
+    document.getElementById('ovw').addEventListener('click', function () { go(0); });
+    document.getElementById('fs').addEventListener('click', function () {
+      try {
+        if (document.fullscreenElement) document.exitFullscreen();
+        else { var r = document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); if (r && r.catch) r.catch(function () { }); }
+      } catch (e) { }
+    });
+    document.addEventListener('keydown', function (ev) {
+      if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
+      var k = ev.key;
+      if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || k === ' ' || k === 'Enter') { if (k === 'Enter' && ev.target.tagName === 'BUTTON') return; if (k === ' ' && ev.target.tagName === 'BUTTON') return; ev.preventDefault(); go(cur + 1); }
+      else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp' || k === 'Backspace') { ev.preventDefault(); go(cur - 1); }
+      else if (k === 'Home') { ev.preventDefault(); go(0); }
+      else if (k === 'End') { ev.preventDefault(); go(N - 1); }
+      else if (/^[1-5]$/.test(k)) go(CHAPTERS[+k - 1]);
+      else if (k === 'f' || k === 'F') document.getElementById('fs').click();
+    });
+    var idle = 0;
+    function wake() {
+      ctl.classList.remove('gone'); clearTimeout(idle);
+      idle = setTimeout(function () { if (document.fullscreenElement) ctl.classList.add('gone'); }, 2500);
+    }
+    document.addEventListener('mousemove', wake);
+    document.addEventListener('fullscreenchange', wake);
+    vp.focus({ preventScroll: true });
+  }
+})();
+</script>
+
+</body></html>
